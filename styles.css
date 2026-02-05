@@ -702,3 +702,211 @@ ul {
         text-align: left;
     }
 }
+
+/* =============================================
+   Gallery Section
+   ============================================= */
+.gallery {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--color-bg-alt);
+}
+
+.gallery__filters {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    font-family: inherit;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-light);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.filter-btn--active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.gallery__item {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.gallery__item:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery__item--hidden {
+    display: none;
+}
+
+.gallery__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery__label {
+    color: white;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-md);
+}
+
+@media (min-width: 768px) {
+    .gallery__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery__label {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* =============================================
+   Lightbox
+   ============================================= */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.lightbox[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox__close {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    z-index: 10;
+}
+
+.lightbox__close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    z-index: 10;
+}
+
+.lightbox__nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox__nav--prev {
+    left: var(--spacing-lg);
+}
+
+.lightbox__nav--next {
+    right: var(--spacing-lg);
+}
+
+.lightbox__content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 80vh;
+    text-align: center;
+}
+
+.lightbox__image {
+    width: 80vw;
+    max-width: 800px;
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-lg);
+    transform: scale(0.9);
+    transition: transform var(--transition-base);
+}
+
+.lightbox[aria-hidden="false"] .lightbox__image {
+    transform: scale(1);
+}
+
+.lightbox__caption {
+    color: white;
+    font-size: var(--font-size-lg);
+    margin-top: var(--spacing-lg);
+    font-weight: 500;
+}
+
+/* Body scroll lock when lightbox is open */
+body.lightbox-open {
+    overflow: hidden;
+}

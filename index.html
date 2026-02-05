@@ -13,6 +13,7 @@
             <a href="#" class="nav__logo">FitPulse</a>
             <ul class="nav__menu">
                 <li><a href="#showcase" class="nav__link">Features</a></li>
+                <li><a href="#gallery" class="nav__link">Gallery</a></li>
                 <li><a href="#benefits" class="nav__link">Benefits</a></li>
                 <li><a href="#testimonials" class="nav__link">Testimonials</a></li>
                 <li><a href="#pricing" class="nav__link">Pricing</a></li>
@@ -84,6 +85,56 @@
                         <h3 class="card__title">Progress Analytics</h3>
                         <p class="card__description">Visualize your journey with beautiful charts. Track weight, measurements, strength gains, and more over time.</p>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2 class="section__title">See FitPulse in Action</h2>
+                <p class="section__subtitle">Explore our app features through screenshots</p>
+
+                <!-- Gallery Filters -->
+                <div class="gallery__filters">
+                    <button class="filter-btn filter-btn--active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="workouts">Workouts</button>
+                    <button class="filter-btn" data-filter="nutrition">Nutrition</button>
+                    <button class="filter-btn" data-filter="progress">Progress</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery__grid">
+                    <div class="gallery__item" data-category="workouts" data-index="0">
+                        <div class="gallery__placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <span class="gallery__label">Workout Dashboard</span>
+                        </div>
+                    </div>
+                    <div class="gallery__item" data-category="nutrition" data-index="1">
+                        <div class="gallery__placeholder" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                            <span class="gallery__label">Meal Tracker</span>
+                        </div>
+                    </div>
+                    <div class="gallery__item" data-category="progress" data-index="2">
+                        <div class="gallery__placeholder" style="background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);">
+                            <span class="gallery__label">Progress Charts</span>
+                        </div>
+                    </div>
+                    <div class="gallery__item" data-category="workouts" data-index="3">
+                        <div class="gallery__placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <span class="gallery__label">Exercise Library</span>
+                        </div>
+                    </div>
+                    <div class="gallery__item" data-category="nutrition" data-index="4">
+                        <div class="gallery__placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            <span class="gallery__label">Recipe Suggestions</span>
+                        </div>
+                    </div>
+                    <div class="gallery__item" data-category="progress" data-index="5">
+                        <div class="gallery__placeholder" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                            <span class="gallery__label">Weekly Reports</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -228,6 +279,31 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox__overlay" data-lightbox-close></div>
+        <button class="lightbox__close" data-lightbox-close aria-label="Close lightbox">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous image">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        <button class="lightbox__nav lightbox__nav--next" aria-label="Next image">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+        <div class="lightbox__content">
+            <div class="lightbox__image" id="lightboxImage"></div>
+            <p class="lightbox__caption" id="lightboxCaption"></p>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
