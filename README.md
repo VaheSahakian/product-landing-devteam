@@ -78,10 +78,6 @@ product-landing-devteam/
 - **Merged PR (UX Enhancements)**: [PR #1](https://github.com/VaheSahakian/product-landing-devteam/pull/1)
 - **Closed PR (Showcase Interactions)**: [PR #2](https://github.com/VaheSahakian/product-landing-devteam/pull/2)
 
-## Team
-
-Built with Claude Code
-
 ## License
 
 Copyright 2025 FitPulse. All rights reserved.
